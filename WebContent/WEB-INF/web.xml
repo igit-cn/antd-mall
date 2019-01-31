@@ -12,6 +12,10 @@
 			classpath*:/applicationContext-shiro.xml
 		</param-value>
 	</context-param>
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>com.igomall.mall</param-value>
+	</context-param>
 
 	<filter>
 		<filter-name>encodingFilter</filter-name>

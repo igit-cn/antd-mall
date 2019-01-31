@@ -1,6 +1,0 @@
-SHOP++
-Copyright 2005-2017 shopxx.net. All rights reserved.
-Support:
-License: /license
-Revision: 5.0.2 RELEASE
-Date: 2017-03
