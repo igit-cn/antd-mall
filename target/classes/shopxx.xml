@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <shopxx> 
-	<setting name="siteName" value="SHOP++商城"/>  
-	<setting name="siteUrl" value="http://localhost:8480/mall"/>  
-	<setting name="logo" value="/mall/upload/image/logo.png"/>  
+	<setting name="siteName" value="商城"/>  
+	<setting name="siteUrl" value="http://mall.igomall.xin/"/>  
+	<setting name="logo" value="/upload/image/logo.png"/>  
 	<setting name="hotSearch" value="苹果,三星,索尼,华为,魅族,佳能,华硕,美的,格力"/>  
 	<setting name="address" value="湖南长沙经济技术开发区"/>  
 	<setting name="phone" value="800-8888888"/>  
@@ -16,10 +16,10 @@
 	<setting name="mediumProductImageHeight" value="300"/>  
 	<setting name="thumbnailProductImageWidth" value="170"/>  
 	<setting name="thumbnailProductImageHeight" value="170"/>  
-	<setting name="defaultLargeProductImage" value="/mall/upload/image/default_large.jpg"/>  
-	<setting name="defaultMediumProductImage" value="/mall/upload/image/default_medium.jpg"/>  
-	<setting name="defaultThumbnailProductImage" value="/mall/upload/image/default_thumbnail.jpg"/>  
-	<setting name="defaultStoreLogo" value="/mall/upload/image/default_store_logo.jpg"/>  
+	<setting name="defaultLargeProductImage" value="/upload/image/default_large.jpg"/>  
+	<setting name="defaultMediumProductImage" value="/upload/image/default_medium.jpg"/>  
+	<setting name="defaultThumbnailProductImage" value="/upload/image/default_thumbnail.jpg"/>  
+	<setting name="defaultStoreLogo" value="/upload/image/default_store_logo.jpg"/>  
 	<setting name="watermarkAlpha" value="50"/>  
 	<setting name="watermarkImage" value="/upload/image/watermark.png"/>  
 	<setting name="watermarkPosition" value="no"/>  

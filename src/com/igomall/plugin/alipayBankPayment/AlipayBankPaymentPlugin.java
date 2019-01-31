@@ -1,8 +1,4 @@
-/*
- * Copyright 2005-2017 shopxx.net. All rights reserved.
- * Support: http://www.shopxx.net
- * License: http://www.shopxx.net/license
- */
+
 package com.igomall.plugin.alipayBankPayment;
 
 import java.math.BigDecimal;
@@ -61,7 +57,7 @@ public class AlipayBankPaymentPlugin extends PaymentPlugin {
 
 	@Override
 	public String getSiteUrl() {
-		return "http://www.shopxx.net";
+		return "";
 	}
 
 	@Override

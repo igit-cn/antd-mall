@@ -5,7 +5,7 @@
 	<version>5.0.2-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>SHOP++ B2B2C</name>
-	<url>http://www.shopxx.net</url>
+	<url></url>
 	<description>SHOP++ B2B2C网上商城系统</description>
 	<build>
 		<sourceDirectory>src</sourceDirectory>

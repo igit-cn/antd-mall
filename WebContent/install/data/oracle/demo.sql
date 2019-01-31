@@ -1,7 +1,7 @@
 -- SHOP++ DEMO SQL
 -- Copyright 2005-2017 shopxx.net. All rights reserved.
--- Support: http://www.shopxx.net
--- License: http://www.shopxx.net/license
+-- Support:
+-- License: /license
 
 -- 初始化DEMO数据 --
 

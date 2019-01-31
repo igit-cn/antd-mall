@@ -1,8 +1,4 @@
-/*
- * Copyright 2005-2017 shopxx.net. All rights reserved.
- * Support: http://www.shopxx.net
- * License: http://www.shopxx.net/license
- */
+
 package com.igomall.plugin.weixinNativePayment;
 
 import java.awt.image.BufferedImage;
@@ -74,7 +70,7 @@ public class WeixinNativePaymentPlugin extends PaymentPlugin {
 
 	@Override
 	public String getSiteUrl() {
-		return "http://www.shopxx.net";
+		return "";
 	}
 
 	@Override

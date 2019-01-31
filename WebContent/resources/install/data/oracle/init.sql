@@ -1,7 +1,7 @@
 -- SHOP++ INIT SQL
 -- Copyright 2005-2017 shopxx.net. All rights reserved.
--- Support: http://www.shopxx.net
--- License: http://www.shopxx.net/license
+-- Support:
+-- License: /license
 
 -- 初始化数据库表结构 --
 
@@ -3484,7 +3484,7 @@ INSERT INTO DeliveryCorp (id, createdDate, lastModifiedDate, version, orders, co
 INSERT INTO DeliveryCorp (id, createdDate, lastModifiedDate, version, orders, code, name, url) VALUES ('3', to_date('${date?string("yyyy-MM-dd HH:mm:ss")}', 'yyyy-mm-dd hh24:mi:ss'), to_date('${date?string("yyyy-MM-dd HH:mm:ss")}', 'yyyy-mm-dd hh24:mi:ss'), '0', '3', 'shunfeng', '顺丰速运', 'http://www.sf-express.com')
 INSERT INTO DeliveryCorp (id, createdDate, lastModifiedDate, version, orders, code, name, url) VALUES ('4', to_date('${date?string("yyyy-MM-dd HH:mm:ss")}', 'yyyy-mm-dd hh24:mi:ss'), to_date('${date?string("yyyy-MM-dd HH:mm:ss")}', 'yyyy-mm-dd hh24:mi:ss'), '0', '4', 'yunda', '韵达快递', 'http://www.yundaex.com')
 
-INSERT INTO FriendLink (id, createdDate, lastModifiedDate, version, orders, logo, name, type, url) VALUES ('1', to_date('${date?string("yyyy-MM-dd HH:mm:ss")}', 'yyyy-mm-dd hh24:mi:ss'), to_date('${date?string("yyyy-MM-dd HH:mm:ss")}', 'yyyy-mm-dd hh24:mi:ss'), '0', '1', '${demoImageUrlPrefix}/201601/1c675feb-e488-4fd5-a186-b28bb6de445a.gif', 'SHOP++', '1', 'http://www.shopxx.net')
+INSERT INTO FriendLink (id, createdDate, lastModifiedDate, version, orders, logo, name, type, url) VALUES ('1', to_date('${date?string("yyyy-MM-dd HH:mm:ss")}', 'yyyy-mm-dd hh24:mi:ss'), to_date('${date?string("yyyy-MM-dd HH:mm:ss")}', 'yyyy-mm-dd hh24:mi:ss'), '0', '1', '${demoImageUrlPrefix}/201601/1c675feb-e488-4fd5-a186-b28bb6de445a.gif', 'SHOP++', '1', '')
 INSERT INTO FriendLink (id, createdDate, lastModifiedDate, version, orders, logo, name, type, url) VALUES ('2', to_date('${date?string("yyyy-MM-dd HH:mm:ss")}', 'yyyy-mm-dd hh24:mi:ss'), to_date('${date?string("yyyy-MM-dd HH:mm:ss")}', 'yyyy-mm-dd hh24:mi:ss'), '0', '2', '${demoImageUrlPrefix}/201601/ae13eddc-25ac-427a-875d-d1799d751076.gif', '支付宝', '1', 'http://www.alipay.com')
 INSERT INTO FriendLink (id, createdDate, lastModifiedDate, version, orders, logo, name, type, url) VALUES ('3', to_date('${date?string("yyyy-MM-dd HH:mm:ss")}', 'yyyy-mm-dd hh24:mi:ss'), to_date('${date?string("yyyy-MM-dd HH:mm:ss")}', 'yyyy-mm-dd hh24:mi:ss'), '0', '3', '${demoImageUrlPrefix}/201601/adaa9ac5-9994-4aa3-a336-b65613c85d50.gif', '财付通', '1', 'http://www.tenpay.com')
 INSERT INTO FriendLink (id, createdDate, lastModifiedDate, version, orders, logo, name, type, url) VALUES ('4', to_date('${date?string("yyyy-MM-dd HH:mm:ss")}', 'yyyy-mm-dd hh24:mi:ss'), to_date('${date?string("yyyy-MM-dd HH:mm:ss")}', 'yyyy-mm-dd hh24:mi:ss'), '0', '4', '${demoImageUrlPrefix}/201601/41c18c8d-f69a-49fe-ace3-f16c2eb07983.gif', '中国银联', '1', 'https://www.95516.com')
