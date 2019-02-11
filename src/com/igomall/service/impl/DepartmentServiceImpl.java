@@ -1,11 +1,13 @@
 
 package com.igomall.service.impl;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -37,8 +39,29 @@ public class DepartmentServiceImpl extends BaseServiceImpl<Department, Long> imp
 	}
 
 	@Transactional(readOnly = true)
+	@Cacheable(value = "department", condition = "#useCache")
+	public List<Department> findRoots(Integer count, boolean useCache) {
+		return departmentDao.findRoots(count);
+	}
+
+	@Transactional(readOnly = true)
 	public List<Department> findParents(Department department, boolean recursive, Integer count) {
 		return departmentDao.findParents(department, recursive, count);
+	}
+
+	@Transactional(readOnly = true)
+	@Cacheable(value = "department", condition = "#useCache")
+	public List<Department> findParents(Long departmentId, boolean recursive, Integer count, boolean useCache) {
+		Department department = departmentDao.find(departmentId);
+		if (departmentId != null && department == null) {
+			return Collections.emptyList();
+		}
+		return departmentDao.findParents(department, recursive, count);
+	}
+
+	@Transactional(readOnly = true)
+	public List<Department> findTree() {
+		return departmentDao.findChildren(null, true, null);
 	}
 
 	@Transactional(readOnly = true)
@@ -46,19 +69,29 @@ public class DepartmentServiceImpl extends BaseServiceImpl<Department, Long> imp
 		return departmentDao.findChildren(department, recursive, count);
 	}
 
+	@Transactional(readOnly = true)
+	@Cacheable(value = "department", condition = "#useCache")
+	public List<Department> findChildren(Long departmentId, boolean recursive, Integer count, boolean useCache) {
+		Department department = departmentDao.find(departmentId);
+		if (departmentId != null && department == null) {
+			return Collections.emptyList();
+		}
+		return departmentDao.findChildren(department, recursive, count);
+	}
+
 	@Override
 	@Transactional
-	@CacheEvict(value = "department", allEntries = true)
+	@CacheEvict(value = {"department" }, allEntries = true)
 	public Department save(Department department) {
 		Assert.notNull(department);
 
 		setValue(department);
 		return super.save(department);
-	}
+	}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 
 	@Override
 	@Transactional
-	@CacheEvict(value = "department", allEntries = true)
+	@CacheEvict(value = {"department" }, allEntries = true)
 	public Department update(Department department) {
 		Assert.notNull(department);
 
@@ -71,28 +104,32 @@ public class DepartmentServiceImpl extends BaseServiceImpl<Department, Long> imp
 
 	@Override
 	@Transactional
-	@CacheEvict(value = "department", allEntries = true)
+	@CacheEvict(value = {"department" }, allEntries = true)
 	public Department update(Department department, String... ignoreProperties) {
+		setValue(department);
+		for (Department children : departmentDao.findChildren(department, true, null)) {
+			setValue(children);
+		}
 		return super.update(department, ignoreProperties);
 	}
 
 	@Override
 	@Transactional
-	@CacheEvict(value = "department", allEntries = true)
+	@CacheEvict(value = {"department" }, allEntries = true)
 	public void delete(Long id) {
 		super.delete(id);
 	}
 
 	@Override
 	@Transactional
-	@CacheEvict(value = "department", allEntries = true)
+	@CacheEvict(value = {"department" }, allEntries = true)
 	public void delete(Long... ids) {
 		super.delete(ids);
 	}
 
 	@Override
 	@Transactional
-	@CacheEvict(value = "department", allEntries = true)
+	@CacheEvict(value = {"department" }, allEntries = true)
 	public void delete(Department department) {
 		super.delete(department);
 	}
@@ -101,7 +138,7 @@ public class DepartmentServiceImpl extends BaseServiceImpl<Department, Long> imp
 	 * 设置值
 	 * 
 	 * @param department
-	 *            部门
+	 *            商品分类
 	 */
 	private void setValue(Department department) {
 		if (department == null) {
@@ -117,5 +154,6 @@ public class DepartmentServiceImpl extends BaseServiceImpl<Department, Long> imp
 		}
 		department.setGrade(department.getParentIds().length);
 	}
+
 
 }

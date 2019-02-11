@@ -31,6 +31,14 @@ import com.fasterxml.jackson.annotation.JsonView;
 @Entity
 public class Department extends OrderedEntity<Long> {
 
+	public interface EditView extends BaseView {
+
+	}
+
+	public interface listTreeView extends BaseView {
+
+	}
+
 	public interface ListView extends BaseView{
 
 	}
@@ -48,7 +56,7 @@ public class Department extends OrderedEntity<Long> {
 	@NotEmpty
 	@Length(max = 200)
 	@Column(nullable = false)
-	@JsonView({ListView.class})
+	@JsonView({ListView.class,listTreeView.class,EditView.class})
 	private String name;
 
 	/**
@@ -82,7 +90,7 @@ public class Department extends OrderedEntity<Long> {
 	 */
 	@OneToMany(mappedBy = "parent", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
 	@OrderBy("order asc")
-	@JsonView({ListView.class})
+	@JsonView({listTreeView.class})
 	private Set<Department> children = new HashSet<>();
 
 	/**
@@ -280,6 +288,16 @@ public class Department extends OrderedEntity<Long> {
 			for (Admin admin : admins) {
 				admin.setDepartment(null);
 			}
+		}
+	}
+	
+	@Transient
+	@JsonView({EditView.class})
+	public Long getParentId() {
+		if(getParent()!=null) {
+			return getParent().getId();
+		}else {
+			return null;
 		}
 	}
 

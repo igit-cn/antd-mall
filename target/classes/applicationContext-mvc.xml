@@ -93,6 +93,7 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
 			<mvc:exclude-mapping path="/payment/**" />
+			<mvc:exclude-mapping path="/api/**" />
 			<bean class="com.igomall.security.CsrfInterceptor" />
 		</mvc:interceptor>
 		<mvc:interceptor>

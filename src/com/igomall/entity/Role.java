@@ -16,6 +16,7 @@ import javax.persistence.ManyToMany;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import com.igomall.BaseAttributeConverter;
 
 /**
@@ -27,6 +28,10 @@ import com.igomall.BaseAttributeConverter;
 @Entity
 public class Role extends BaseEntity<Long> {
 
+	public interface ListView extends BaseView{
+
+	}
+
 	private static final long serialVersionUID = -6614052029623997372L;
 
 	/**
@@ -35,6 +40,7 @@ public class Role extends BaseEntity<Long> {
 	@NotEmpty
 	@Length(max = 200)
 	@Column(nullable = false)
+	@JsonView({ListView.class})
 	private String name;
 
 	/**

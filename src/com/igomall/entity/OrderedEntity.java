@@ -14,6 +14,8 @@ import org.hibernate.search.annotations.Index;
 import org.hibernate.search.annotations.NumericField;
 import org.hibernate.search.annotations.Store;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 /**
  * Entity - 排序基类
  * 
@@ -37,6 +39,7 @@ public abstract class OrderedEntity<ID extends Serializable> extends BaseEntity<
 	@NumericField
 	@Min(0)
 	@Column(name = "orders")
+	@JsonView(BaseView.class)
 	private Integer order;
 
 	/**
